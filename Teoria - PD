@@ -1,0 +1,33 @@
+1. try, catch, finally
+
+
+
+Służą do reagowania na błędy w czasie działania programu. To mechanizm pozwalający bezpiecznie uruchamiać kod.
+
+try – sekcja, w której umieszczamy instrukcje mogące wywołać wyjątek.
+
+catch – uruchamia się, jeśli w bloku try pojawi się błąd; tutaj określamy, jak go obsłużyć, zamiast nagle zatrzymywać działanie programu.
+
+finally – fragment kodu wykonywany zawsze, niezależnie od tego, czy w try wystąpił błąd. Służy np. do zwalniania zasobów, takich jak zamykanie plików.
+
+
+
+
+
+2. Dziedziczenie
+
+
+
+Dziedziczenie pozwala tworzyć nowe klasy na podstawie już istniejących. Klasa pochodna przejmuje pola i metody klasy bazowej, dzięki czemu nie trzeba pisać wszystkiego od zera. Ułatwia to organizację kodu, poprawia jego czytelność i umożliwia wielokrotne wykorzystywanie tej samej logiki. Krótko mówiąc, dziedziczenie pomaga tworzyć bardziej przejrzyste, spójne i łatwe do utrzymania programy.
+
+
+
+3. Array i ArrayList
+
+
+
+Array (tablica):
+To struktura o stałej wielkości przechowująca elementy jednego typu, np. int, String. Raz ustalony rozmiar tablicy nie może być zmieniony — można jedynie modyfikować istniejące elementy, ale nie dodawać ani usuwać kolejnych.
+
+ArrayList:
+To elastyczna lista, której rozmiar może rosnąć i maleć dzięki metodom takim jak add, remove czy size. Pracuje tylko na obiektach (np. String, Integer). Aby z niej korzystać, trzeba zaimportować odpowiednią klasę ArrayLis
