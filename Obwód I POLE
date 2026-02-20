@@ -1,0 +1,153 @@
+using System;
+class HeLLoWoRlD
+{
+    static void Main()
+    {
+     
+     while(true){
+        
+        Console.WriteLine("Wybierz:");
+        Console.WriteLine("1 - Prostokąt");
+        Console.WriteLine("2 - Koło");
+        Console.WriteLine("3 - Trójkąt");
+        Console.WriteLine("4 - Sześcian");
+        Console.WriteLine("5 - Równoległobok");
+        Console.WriteLine("6 - Prostopadłościan");
+        Console.WriteLine("7 - Wyjście");
+
+
+        Console.Write("Twój wybór: ");
+        int wybor = int.Parse(Console.ReadLine());
+
+        if (wybor == 1)
+        {
+            Prostokat();
+        }
+        else if (wybor == 2){
+            Kolo();
+        }else if(wybor == 3){
+            Trojkat();
+        }else if(wybor == 4){
+            Szescian();
+        }else if(wybor == 5){
+            Rownoleglobok();
+        }else if(wybor == 6){
+            Prostopadloscian();
+        }else if(wybor == 7){
+            Environment.Exit(0);
+        }
+        else
+        {
+            Console.WriteLine("Niepoprawny wybór.");
+        }
+    }
+    }
+
+    public static void Prostokat()
+    {
+        Console.Write("Długość krótszego boku: ");
+        double krbok = double.Parse(Console.ReadLine());
+
+        Console.Write("Długość dłuższego boku: ");
+        double dlbok = double.Parse(Console.ReadLine());
+
+        double pole = krbok * dlbok;
+        double obwod = 2 * (krbok + dlbok);
+
+     
+        
+         Console.WriteLine($"Pole = {pole:F2}");
+        Console.WriteLine($"Obwód = {obwod:F2}");
+    }
+
+    public static void Kolo()
+    {
+        Console.Write("Długość promienia: ");
+        double promien = double.Parse(Console.ReadLine());
+
+        double poleKolo = Math.PI * Math.Pow(promien, 2);
+        double obwodKolo = 2 * Math.PI * promien;
+
+   
+        
+         Console.WriteLine($"Pole = {poleKolo:F2}");
+        Console.WriteLine($"Obwód = {obwodKolo:F2}");
+    }
+      public static void Trojkat()
+    {
+        Console.Write("Długość Pierwszego boku: ");
+        double Pbok = double.Parse(Console.ReadLine());
+        
+        Console.Write("Długość Drugiego boku: ");
+        double Dbok = double.Parse(Console.ReadLine());
+        
+        Console.Write("Długość Trzeciego boku: ");
+        double Tbok = double.Parse(Console.ReadLine());
+
+        double poleTr = (Pbok + Dbok + Tbok) / 2;
+        double obwodTr = Pbok + Dbok + Tbok;
+
+     
+        
+         Console.WriteLine($"Pole = {poleTr:F2}");
+        Console.WriteLine($"Obwód = {obwodTr:F2}");
+    }
+    
+  public static void Szescian()
+    {
+        Console.Write("Długość boku: ");
+        double bok = double.Parse(Console.ReadLine());
+
+        double poleSz = Math.Pow(bok, 3);
+        double obwodSz = 6 * Math.Pow(bok, 2);
+
+     
+        
+         Console.WriteLine($"Pole = {poleSz:F2}");
+        Console.WriteLine($"Obwód = {obwodSz:F2}");
+    }    
+    
+    
+     public static void Rownoleglobok()
+    {
+        Console.Write("Długość boku a: ");
+        double bokA = double.Parse(Console.ReadLine());
+        
+        Console.Write("Długość boku b: ");
+        double bokB = double.Parse(Console.ReadLine());
+        
+        Console.Write("Wysokość: ");
+        double wysokosc = double.Parse(Console.ReadLine());
+
+        double poleR = bokA * wysokosc;
+        double obwodR = 2 * bokA + 2 * bokB;
+
+       
+        
+         Console.WriteLine($"Pole = {poleR:F2}");
+        Console.WriteLine($"Obwód = {obwodR:F2}");
+    } 
+    
+      public static void Prostopadloscian()
+    {
+        Console.Write("Długość boku a: ");
+        double bokAA = double.Parse(Console.ReadLine());
+        
+        Console.Write("Długość boku b: ");
+        double bokBB = double.Parse(Console.ReadLine());
+        
+        Console.Write("Wysokość: ");
+        double wysokosc2 = double.Parse(Console.ReadLine());
+
+        double poleP = bokAA * bokBB * wysokosc2;
+        double obwodP = 2 * (bokAA * bokBB + bokAA * wysokosc2 + bokBB * wysokosc2);
+
+        Console.WriteLine($"Pole = {poleP:F2}");
+        Console.WriteLine($"Obwód = {obwodP:F2}");
+    }
+}
+
+
+
+
+
