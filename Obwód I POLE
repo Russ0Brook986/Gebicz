@@ -98,8 +98,8 @@ class HeLLoWoRlD
         Console.Write("Długość boku: ");
         double bok = double.Parse(Console.ReadLine());
 
-        double poleSz = Math.Pow(bok, 3);
-        double obwodSz = 6 * Math.Pow(bok, 2);
+        double poleSz = 6 * Math.Pow(bok, 2);
+        double obwodSz = Math.Pow(bok, 3);
 
      
         
@@ -139,8 +139,8 @@ class HeLLoWoRlD
         Console.Write("Wysokość: ");
         double wysokosc2 = double.Parse(Console.ReadLine());
 
-        double poleP = bokAA * bokBB * wysokosc2;
-        double obwodP = 2 * (bokAA * bokBB + bokAA * wysokosc2 + bokBB * wysokosc2);
+        double poleP = 2 * (bokAA * bokBB + bokAA * wysokosc2 + bokBB * wysokosc2); 
+        double obwodP = bokAA * bokBB * wysokosc2;
 
         Console.WriteLine($"Pole = {poleP:F2}");
         Console.WriteLine($"Obwód = {obwodP:F2}");
