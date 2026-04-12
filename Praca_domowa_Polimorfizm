@@ -1,0 +1,78 @@
+using System;
+
+
+class Pojazd
+{
+    public string Marka;
+    public int Predkosc;
+
+    public void Jedz()
+    {
+        Console.WriteLine("Pojazd jedzie.");
+    }
+
+    public virtual void WyswietlInformacje()
+    {
+        Console.WriteLine("Marka: " + Marka);
+        Console.WriteLine("Predkosc: " + Predkosc);
+    }
+}
+
+
+class Samochod : Pojazd
+{
+    public int LiczbaDrzwi;
+
+    public override void WyswietlInformacje()
+    {
+        Console.WriteLine("Samochod:");
+        Console.WriteLine("Marka: " + Marka);
+        Console.WriteLine("Predkosc: " + Predkosc);
+        Console.WriteLine("Liczba drzwi: " + LiczbaDrzwi);
+    }
+}
+
+
+class Rower : Pojazd
+{
+    public string Typ;
+
+    public override void WyswietlInformacje()
+    {
+        Console.WriteLine("Rower:");
+        Console.WriteLine("Marka: " + Marka);
+        Console.WriteLine("Predkosc: " + Predkosc);
+        Console.WriteLine("Typ: " + Typ);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Tworzenie obiektów
+        Samochod s1 = new Samochod();
+        s1.Marka = "Toyota";
+        s1.Predkosc = 180;
+        s1.LiczbaDrzwi = 4;
+
+        Rower r1 = new Rower();
+        r1.Marka = "Kross";
+        r1.Predkosc = 25;
+        r1.Typ = "Gorski";
+
+       
+        Pojazd[] pojazdy = new Pojazd[2];
+        pojazdy[0] = s1;
+        pojazdy[1] = r1;
+
+      
+        for (int i = 0; i < pojazdy.Length; i++)
+        {
+            pojazdy[i].WyswietlInformacje();
+            Console.WriteLine();
+        }
+
+        Console.ReadLine();
+    }
+}
