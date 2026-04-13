@@ -1,0 +1,117 @@
+using System;
+using System.Collections.Generic;
+
+public class HelloWorld
+{
+    // KLASA BAZOWA
+    class Dzialanie
+    {
+        public double a;
+        public double b;
+
+        public virtual double Oblicz()
+        {
+            return 0;
+        }
+
+        public virtual void Wyswietl()
+        {
+            Console.WriteLine("Dzialanie matematyczne");
+        }
+    }
+
+    // DODAWANIE
+    class Dodawanie : Dzialanie
+    {
+        public override double Oblicz()
+        {
+            return a + b;
+        }
+
+        public override void Wyswietl()
+        {
+            Console.WriteLine(a + " + " + b + " = " + Oblicz());
+        }
+    }
+
+    // ODEJMOWANIE
+    class Odejmowanie : Dzialanie
+    {
+        public override double Oblicz()
+        {
+            return a - b;
+        }
+
+        public override void Wyswietl()
+        {
+            Console.WriteLine(a + " - " + b + " = " + Oblicz());
+        }
+    }
+
+    // MNOŻENIE
+    class Mnozenie : Dzialanie
+    {
+        public override double Oblicz()
+        {
+            return a * b;
+        }
+
+        public override void Wyswietl()
+        {
+            Console.WriteLine(a + " * " + b + " = " + Oblicz());
+        }
+    }
+
+    // DZIELENIE
+    class Dzielenie : Dzialanie
+    {
+        public override double Oblicz()
+        {
+            if (b == 0)
+            {
+                Console.WriteLine("Blad: dzielenie przez zero!");
+                return 0;
+            }
+            return a / b;
+        }
+
+        public override void Wyswietl()
+        {
+            if (b != 0)
+                Console.WriteLine(a + " / " + b + " = " + Oblicz());
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        List<Dzialanie> lista = new List<Dzialanie>();
+
+        Dodawanie d = new Dodawanie();
+        d.a = 10;
+        d.b = 5;
+
+        Odejmowanie o = new Odejmowanie();
+        o.a = 10;
+        o.b = 5;
+
+        Mnozenie m = new Mnozenie();
+        m.a = 10;
+        m.b = 5;
+
+        Dzielenie dz = new Dzielenie();
+        dz.a = 10;
+        dz.b = 0; // test dzielenia przez 0
+
+        lista.Add(d);
+        lista.Add(o);
+        lista.Add(m);
+        lista.Add(dz);
+
+        foreach (Dzialanie x in lista)
+        {
+            Console.WriteLine("<<<<<< DZIALANIE >>>>>>");
+            x.Wyswietl();
+            Console.WriteLine();
+        }
+    }
+}
