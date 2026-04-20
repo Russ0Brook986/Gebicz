@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    delegate int Transformacja(int x);
+
+    static int Podwoj(int x)
+    {
+        return x * 2;
+    }
+
+    static int Neguj(int x)
+    {
+        return -x;
+    }
+
+    static void Main()
+    {
+        Transformacja t;
+
+        t = Podwoj;
+        Console.WriteLine("Podwoj(7) = " + t(7));
+
+        t = Neguj;
+        Console.WriteLine("Neguj(7) = " + t(7));
+    }
+}
