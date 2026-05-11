@@ -1,0 +1,162 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    delegate double Operacja(double a, double b);
+
+    static List<string> historia = new List<string>();
+    static List<double> wyniki = new List<double>();
+
+    static void Main()
+    {
+        bool start = true;
+
+        while (start)
+        {
+            Console.Clear();
+
+            Console.WriteLine("=== KALKULATOR ===");
+            Console.WriteLine("1. Dodawanie");
+            Console.WriteLine("2. Odejmowanie");
+            Console.WriteLine("3. Mnożenie");
+            Console.WriteLine("4. Dzielenie");
+            Console.WriteLine("5. Historia");
+            Console.WriteLine("6. Wyczyść historię");
+            Console.WriteLine("7. Statystyki");
+            Console.WriteLine("0. Koniec");
+
+            Console.Write("Wybór: ");
+            string wybor = Console.ReadLine();
+
+            switch (wybor)
+            {
+                case "1":
+                    Licz("+", Dodaj);
+                    break;
+
+                case "2":
+                    Licz("-", Odejmij);
+                    break;
+
+                case "3":
+                    Licz("*", Pomnoz);
+                    break;
+
+                case "4":
+                    Licz("/", Podziel);
+                    break;
+
+                case "5":
+                    PokazHistorie();
+                    break;
+
+                case "6":
+                    historia.Clear();
+                    wyniki.Clear();
+                    Console.WriteLine("Historia usunięta.");
+                    Pauza();
+                    break;
+
+                case "7":
+                    Statystyki();
+                    break;
+
+                case "0":
+                    start = false;
+                    break;
+
+                default:
+                    Console.WriteLine("Błędna opcja!");
+                    Pauza();
+                    break;
+            }
+        }
+    }
+
+    static double Dodaj(double a, double b) => a + b;
+
+    static double Odejmij(double a, double b) => a - b;
+
+    static double Pomnoz(double a, double b) => a * b;
+
+    static double Podziel(double a, double b)
+    {
+        if (b == 0)
+            throw new Exception("Nie można dzielić przez 0!");
+
+        return a / b;
+    }
+
+    static void Licz(string znak, Operacja operacja)
+    {
+        try
+        {
+            Console.Write("Pierwsza liczba: ");
+            double a = double.Parse(Console.ReadLine());
+
+            Console.Write("Druga liczba: ");
+            double b = double.Parse(Console.ReadLine());
+
+            double wynik = operacja(a, b);
+
+            string tekst = $"{a} {znak} {b} = {wynik}";
+
+            historia.Add(tekst);
+            wyniki.Add(wynik);
+
+            Console.WriteLine("Wynik: " + wynik);
+        }
+        catch
+        {
+            Console.WriteLine("Błąd danych!");
+        }
+
+        Pauza();
+    }
+
+    static void PokazHistorie()
+    {
+        Console.WriteLine("=== HISTORIA ===");
+
+        if (historia.Count == 0)
+        {
+            Console.WriteLine("Brak historii.");
+        }
+        else
+        {
+            foreach (string h in historia)
+            {
+                Console.WriteLine(h);
+            }
+        }
+
+        Pauza();
+    }
+
+    static void Statystyki()
+    {
+        Console.WriteLine("=== STATYSTYKI ===");
+
+        if (wyniki.Count == 0)
+        {
+            Console.WriteLine("Brak danych.");
+        }
+        else
+        {
+            Console.WriteLine("Suma: " + wyniki.Sum());
+            Console.WriteLine("Średnia: " + wyniki.Average());
+            Console.WriteLine("Min: " + wyniki.Min());
+            Console.WriteLine("Max: " + wyniki.Max());
+        }
+
+        Pauza();
+    }
+
+    static void Pauza()
+    {
+        Console.WriteLine("\nKliknij klawisz...");
+        Console.ReadKey();
+    }
+}
